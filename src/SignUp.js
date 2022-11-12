@@ -29,20 +29,18 @@ var common_1 = require("./common");
 var majors = [
     { value: 'Computer Science', label: "Computer Science" }
 ];
-// const terms = [
-// ]
 var animatedComponents = (0, animated_1["default"])();
 function getAttr(want, str) {
     return (React.createElement(react_select_1["default"], { placeholder: str, closeMenuOnSelect: false, components: animatedComponents, isMulti: true, options: want }));
 }
 function CoursesTaken() {
-    return getAttr(common_1.course_options, "courses");
+    return getAttr(common_1.course_options, "Courses");
 }
 function GetInterests() {
-    return getAttr(common_1.interests_options, "interests");
+    return getAttr(common_1.interests_options, "Interests");
 }
-var MajorSelection = function () { return (React.createElement(react_select_1["default"], { options: majors, placeholder: "major" })); };
-var GetTerm = function () { return (React.createElement(react_select_1["default"], { options: common_1.terms_options, placeholder: "term" })); };
+var MajorSelection = function () { return (React.createElement(react_select_1["default"], { options: majors, placeholder: "Major" })); };
+var GetTerm = function () { return (React.createElement(react_select_1["default"], { options: common_1.terms_options, placeholder: "Graduation Term" })); };
 function Copyright(props) {
     return (React.createElement(Typography_1["default"], __assign({ variant: "body2", color: "text.secondary", align: "center" }, props),
         'Copyright © ',
@@ -61,31 +59,32 @@ function SignUp() {
             password: data.get('password')
         });
     };
-    return (React.createElement(styles_1.ThemeProvider, { theme: theme },
-        React.createElement(Container_1["default"], { component: "main", maxWidth: "xs" },
-            React.createElement(CssBaseline_1["default"], null),
-            React.createElement(Box_1["default"], { sx: {
-                    marginTop: 8,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center'
-                } },
-                React.createElement(Avatar_1["default"], { sx: { m: 1, bgcolor: 'secondary.main' } },
-                    React.createElement(LockOutlined_1["default"], null)),
-                React.createElement(Typography_1["default"], { component: "h1", variant: "h5" }, "UMass Amherst Major Planner"),
-                React.createElement(Box_1["default"], { component: "form", noValidate: true, onSubmit: handleSubmit, sx: { mt: 3 } },
-                    React.createElement(Grid_1["default"], { container: true, spacing: 2 },
-                        React.createElement(Grid_1["default"], { item: true, xs: 12 },
-                            React.createElement(TextField_1["default"], { required: true, fullWidth: true, id: "email", label: "Email Address", name: "email", autoComplete: "email" })),
-                        React.createElement(Grid_1["default"], { item: true, xs: 12 },
-                            React.createElement(MajorSelection, null)),
-                        React.createElement(Grid_1["default"], { item: true, xs: 12 },
-                            React.createElement(GetTerm, null)),
-                        React.createElement(Grid_1["default"], { item: true, xs: 12 },
-                            React.createElement(CoursesTaken, null)),
-                        React.createElement(Grid_1["default"], { item: true, xs: 12 },
-                            React.createElement(GetInterests, null))),
-                    React.createElement(Button_1["default"], { type: "submit", fullWidth: true, variant: "contained", sx: { mt: 3, mb: 2 } }, "Submit"),
-                    React.createElement(Grid_1["default"], { container: true, justifyContent: "flex-end" }))))));
+    return (React.createElement("div", { style: { backgroundImage: "url(/img/UmassWalp.jpeg)" } },
+        React.createElement(styles_1.ThemeProvider, { theme: theme },
+            React.createElement(Container_1["default"], { component: "main", maxWidth: "xs" },
+                React.createElement(CssBaseline_1["default"], null),
+                React.createElement(Box_1["default"], { sx: {
+                        marginTop: 8,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center'
+                    } },
+                    React.createElement(Avatar_1["default"], { sx: { m: 1, bgcolor: 'secondary.main' } },
+                        React.createElement(LockOutlined_1["default"], null)),
+                    React.createElement(Typography_1["default"], { component: "h1", variant: "h5" }, "UMass Amherst Major Planner"),
+                    React.createElement(Box_1["default"], { component: "form", noValidate: true, onSubmit: handleSubmit, sx: { mt: 3 } },
+                        React.createElement(Grid_1["default"], { container: true, spacing: 2 },
+                            React.createElement(Grid_1["default"], { item: true, xs: 12 },
+                                React.createElement(TextField_1["default"], { required: true, fullWidth: true, id: "email", label: "Email Address", name: "email", autoComplete: "email" })),
+                            React.createElement(Grid_1["default"], { item: true, xs: 12 },
+                                React.createElement(MajorSelection, null)),
+                            React.createElement(Grid_1["default"], { item: true, xs: 12 },
+                                React.createElement(GetTerm, null)),
+                            React.createElement(Grid_1["default"], { item: true, xs: 12 },
+                                React.createElement(CoursesTaken, null)),
+                            React.createElement(Grid_1["default"], { item: true, xs: 12 },
+                                React.createElement(GetInterests, null))),
+                        React.createElement(Button_1["default"], { type: "submit", fullWidth: true, variant: "contained", sx: { mt: 3, mb: 2 } }, "Submit"),
+                        React.createElement(Grid_1["default"], { container: true, justifyContent: "flex-end" })))))));
 }
 exports["default"] = SignUp;

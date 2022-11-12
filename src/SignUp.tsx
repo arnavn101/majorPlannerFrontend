@@ -16,7 +16,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Select from 'react-select'
 import makeAnimated from 'react-select/animated';
 import { course_options, interests_options, terms_options } from './common';
-
+import background from "./img/UmassWalp.jpeg"
 
 
 const majors = [
@@ -81,6 +81,7 @@ export default function SignUp() {
     };
 
     return (
+        <div style={{ backgroundImage: `url(${background})` }}>
         <ThemeProvider theme={theme}>
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
@@ -138,5 +139,6 @@ export default function SignUp() {
                 </Box>
             </Container>
         </ThemeProvider>
+        </div>
     );
 }
