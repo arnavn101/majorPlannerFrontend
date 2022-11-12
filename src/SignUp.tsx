@@ -14,12 +14,28 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Select from 'react-select'
+import makeAnimated from 'react-select/animated';
+
 
 const options = [
     { value: 'chocolate', label: 'Chocolate' },
     { value: 'strawberry', label: 'Strawberry' },
     { value: 'vanilla', label: 'Vanilla' }
 ]
+
+const animatedComponents = makeAnimated();
+
+function AnimatedMulti() {
+    return (
+        <Select
+            closeMenuOnSelect={false}
+            components={animatedComponents}
+            isMulti
+            options={options}
+        />
+    );
+}
+
 
 const ClassesSelection = () => (
     <Select options={options} />
@@ -83,6 +99,9 @@ export default function SignUp() {
                             </Grid>
                             <Grid item xs={12}>
                                 <ClassesSelection />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <AnimatedMulti />
                             </Grid>
                         </Grid>
                         <Button
