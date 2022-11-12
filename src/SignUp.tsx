@@ -23,11 +23,6 @@ const majors = [
     { value: 'Computer Science', label: "Computer Science"}
 ]
 
-// const terms = [
-
-// ]
-
-
 
 const animatedComponents = makeAnimated();
 
