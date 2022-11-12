@@ -19,7 +19,6 @@ var TextField_1 = require("@mui/material/TextField");
 var Link_1 = require("@mui/material/Link");
 var Grid_1 = require("@mui/material/Grid");
 var Box_1 = require("@mui/material/Box");
-var LockOutlined_1 = require("@mui/icons-material/LockOutlined");
 var Typography_1 = require("@mui/material/Typography");
 var Container_1 = require("@mui/material/Container");
 var styles_1 = require("@mui/material/styles");
@@ -60,7 +59,15 @@ function SignUp() {
             password: data.get('password')
         });
     };
-    return (React.createElement("div", { style: { backgroundImage: "url(".concat(background_url, ")") } },
+    return (React.createElement("div", { style: {
+            backgroundImage: "url(".concat(background_url, ")"),
+            backgroundRepeat: 'no-repeat',
+            marginTop: '-64px',
+            marginBottom: 0,
+            backgroundSize: 'cover',
+            height: '100vh',
+            width: '100vw'
+        } },
         React.createElement(styles_1.ThemeProvider, { theme: theme },
             React.createElement(Container_1["default"], { component: "main", maxWidth: "xs" },
                 React.createElement(CssBaseline_1["default"], null),
@@ -70,13 +77,12 @@ function SignUp() {
                         flexDirection: 'column',
                         alignItems: 'center'
                     } },
-                    React.createElement(Avatar_1["default"], { sx: { m: 1, bgcolor: 'secondary.main' } },
-                        React.createElement(LockOutlined_1["default"], null)),
-                    React.createElement(Typography_1["default"], { component: "h1", variant: "h5" }, "UMass Amherst Major Planner"),
+                    React.createElement(Avatar_1["default"], { sx: { m: 1, bgcolor: 'secondary.main' } }),
+                    React.createElement(Typography_1["default"], { component: "h1", align: "center", variant: "h5" }, "UMass Amherst Major Planner"),
                     React.createElement(Box_1["default"], { component: "form", noValidate: true, onSubmit: handleSubmit, sx: { mt: 3 } },
-                        React.createElement(Grid_1["default"], { container: true, spacing: 2 },
+                        React.createElement(Grid_1["default"], { container: true, spacing: 3 },
                             React.createElement(Grid_1["default"], { item: true, xs: 12 },
-                                React.createElement(TextField_1["default"], { required: true, fullWidth: true, id: "email", label: "Email Address", name: "email", autoComplete: "email" })),
+                                React.createElement(TextField_1["default"], { sx: { input: { background: 'white' } }, required: true, fullWidth: true, id: "email", label: "Email Address", name: "email", autoComplete: "email" })),
                             React.createElement(Grid_1["default"], { item: true, xs: 12 },
                                 React.createElement(MajorSelection, null)),
                             React.createElement(Grid_1["default"], { item: true, xs: 12 },

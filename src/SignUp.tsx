@@ -16,7 +16,6 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Select from 'react-select'
 import makeAnimated from 'react-select/animated';
 import { course_options, interests_options, terms_options } from './common';
-import background from "./UmassWalp.png"
 
 const background_url = "https://www.umass.edu/sites/default/files/styles/16_9_1920x1080/public/2021-01/Amherst-6946.JPG?h=ed6f328e&itok=vYXN4GKg"
 
@@ -82,7 +81,15 @@ export default function SignUp() {
     };
 
     return (
-        <div style={{ backgroundImage: `url(${background_url})` }}>
+        <div style={{
+            backgroundImage: `url(${background_url})`,
+            backgroundRepeat: 'no-repeat',
+            marginTop: '-64px',
+            marginBottom: 0,
+            backgroundSize: 'cover',
+            height:'100vh',
+            width:'100vw'
+        }}>
             <ThemeProvider theme={theme}>
                 <Container component="main" maxWidth="xs">
                     <CssBaseline />
@@ -95,15 +102,16 @@ export default function SignUp() {
                         }}
                     >
                         <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-                            <LockOutlinedIcon />
+                            
                         </Avatar>
-                        <Typography component="h1" variant="h5">
+                        <Typography component="h1" align="center" variant="h5">
                             UMass Amherst Major Planner
                         </Typography>
                         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-                            <Grid container spacing={2}>
+                            <Grid container spacing={3}>
                                 <Grid item xs={12}>
                                     <TextField
+                                        sx={{ input: {background: 'white'}}}
                                         required
                                         fullWidth
                                         id="email"
