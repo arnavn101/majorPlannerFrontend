@@ -20,7 +20,7 @@ import { course_options, interests_options, terms_options } from './common';
 
 
 const majors = [
-    { value: 'Computer Science', label: "Computer Science"}
+    { value: 'Computer Science', label: "Computer Science" }
 ]
 
 
@@ -128,6 +128,7 @@ export default function SignUp() {
                             fullWidth
                             variant="contained"
                             sx={{ mt: 3, mb: 2 }}
+                            onClick={() => { console.log('onClick'); }}
                         >
                             Submit
                         </Button>
@@ -135,7 +136,6 @@ export default function SignUp() {
                         </Grid>
                     </Box>
                 </Box>
-                {/* <Copyright sx={{ mt: 5 }} /> */}
             </Container>
         </ThemeProvider>
     );
