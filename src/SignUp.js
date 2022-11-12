@@ -24,12 +24,17 @@ var Typography_1 = require("@mui/material/Typography");
 var Container_1 = require("@mui/material/Container");
 var styles_1 = require("@mui/material/styles");
 var react_select_1 = require("react-select");
+var animated_1 = require("react-select/animated");
 var options = [
     { value: 'chocolate', label: 'Chocolate' },
     { value: 'strawberry', label: 'Strawberry' },
     { value: 'vanilla', label: 'Vanilla' }
 ];
-var MyComponent = function () { return (React.createElement(react_select_1["default"], { options: options })); };
+var animatedComponents = (0, animated_1["default"])();
+function AnimatedMulti() {
+    return (React.createElement(react_select_1["default"], { closeMenuOnSelect: false, components: animatedComponents, isMulti: true, options: options }));
+}
+var ClassesSelection = function () { return (React.createElement(react_select_1["default"], { options: options })); };
 function Copyright(props) {
     return (React.createElement(Typography_1["default"], __assign({ variant: "body2", color: "text.secondary", align: "center" }, props),
         'Copyright © ',
@@ -65,7 +70,9 @@ function SignUp() {
                         React.createElement(Grid_1["default"], { item: true, xs: 12 },
                             React.createElement(TextField_1["default"], { required: true, fullWidth: true, id: "email", label: "Email Address", name: "email", autoComplete: "email" })),
                         React.createElement(Grid_1["default"], { item: true, xs: 12 },
-                            React.createElement(MyComponent, null))),
+                            React.createElement(ClassesSelection, null)),
+                        React.createElement(Grid_1["default"], { item: true, xs: 12 },
+                            React.createElement(AnimatedMulti, null))),
                     React.createElement(Button_1["default"], { type: "submit", fullWidth: true, variant: "contained", sx: { mt: 3, mb: 2 } }, "Submit"),
                     React.createElement(Grid_1["default"], { container: true, justifyContent: "flex-end" }))))));
 }
