@@ -32,17 +32,17 @@ var majors = [
 // const terms = [
 // ]
 var animatedComponents = (0, animated_1["default"])();
-function getAttr(want) {
-    return (React.createElement(react_select_1["default"], { closeMenuOnSelect: false, components: animatedComponents, isMulti: true, options: want }));
+function getAttr(want, str) {
+    return (React.createElement(react_select_1["default"], { placeholder: str, closeMenuOnSelect: false, components: animatedComponents, isMulti: true, options: want }));
 }
 function CoursesTaken() {
-    return getAttr(common_1.course_options);
+    return getAttr(common_1.course_options, "courses");
 }
 function GetInterests() {
-    return getAttr(common_1.interests_options);
+    return getAttr(common_1.interests_options, "interests");
 }
-var MajorSelection = function () { return (React.createElement(react_select_1["default"], { options: majors })); };
-var GetTerm = function () { return (React.createElement(react_select_1["default"], { options: common_1.terms_options })); };
+var MajorSelection = function () { return (React.createElement(react_select_1["default"], { options: majors, placeholder: "major" })); };
+var GetTerm = function () { return (React.createElement(react_select_1["default"], { options: common_1.terms_options, placeholder: "term" })); };
 function Copyright(props) {
     return (React.createElement(Typography_1["default"], __assign({ variant: "body2", color: "text.secondary", align: "center" }, props),
         'Copyright © ',

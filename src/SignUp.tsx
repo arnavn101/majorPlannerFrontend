@@ -26,9 +26,10 @@ const majors = [
 
 const animatedComponents = makeAnimated();
 
-function getAttr(want: any) {
+function getAttr(want: any, str: string) {
     return (
         <Select
+            placeholder={str}
             closeMenuOnSelect={false}
             components={animatedComponents}
             isMulti
@@ -38,19 +39,19 @@ function getAttr(want: any) {
 }
 
 function CoursesTaken() {
-    return getAttr(course_options)
+    return getAttr(course_options, "courses")
 }
 
 function GetInterests() {
-    return getAttr(interests_options)
+    return getAttr(interests_options, "interests")
 }
 
 const MajorSelection = () => (
-    <Select options={majors} />
+    <Select options={majors} placeholder="major" />
 )
 
 const GetTerm = () => (
-    <Select options={terms_options} />
+    <Select options={terms_options} placeholder="term" />
 )
 
 
