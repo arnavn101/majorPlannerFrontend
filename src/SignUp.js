@@ -1,22 +1,10 @@
 "use strict";
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 exports.__esModule = true;
 var React = require("react");
 var Avatar_1 = require("@mui/material/Avatar");
 var Button_1 = require("@mui/material/Button");
 var CssBaseline_1 = require("@mui/material/CssBaseline");
 var TextField_1 = require("@mui/material/TextField");
-var Link_1 = require("@mui/material/Link");
 var Grid_1 = require("@mui/material/Grid");
 var Box_1 = require("@mui/material/Box");
 var Typography_1 = require("@mui/material/Typography");
@@ -27,37 +15,43 @@ var animated_1 = require("react-select/animated");
 var common_1 = require("./common");
 var background_url = "https://www.umass.edu/sites/default/files/styles/16_9_1920x1080/public/2021-01/Amherst-6946.JPG?h=ed6f328e&itok=vYXN4GKg";
 var majors = [
-    { value: 'Computer Science', label: "Computer Science" }
+    { value: 'Computer Science', label: "Computer Science" },
+    { value: 'Informatics', label: "Informatics" }
 ];
 var animatedComponents = (0, animated_1["default"])();
-function getAttr(want, str) {
-    return (React.createElement(react_select_1["default"], { placeholder: str, closeMenuOnSelect: false, components: animatedComponents, isMulti: true, options: want }));
+function getAttr(want, str, name) {
+    return (React.createElement(react_select_1["default"], { required: true, placeholder: str, closeMenuOnSelect: false, components: animatedComponents, isMulti: true, options: want, name: name, onChange: function (e) { return console.log(e); } }));
 }
 function CoursesTaken() {
-    return getAttr(common_1.course_options, "Courses");
+    return getAttr(common_1.course_options, "Courses", "courses");
 }
 function GetInterests() {
-    return getAttr(common_1.interests_options, "Interests");
+    return getAttr(common_1.interests_options, "Interests", "interests");
 }
-var MajorSelection = function () { return (React.createElement(react_select_1["default"], { options: majors, placeholder: "Major" })); };
-var GetTerm = function () { return (React.createElement(react_select_1["default"], { options: common_1.terms_options, placeholder: "Graduation Term" })); };
-function Copyright(props) {
-    return (React.createElement(Typography_1["default"], __assign({ variant: "body2", color: "text.secondary", align: "center" }, props),
-        'Copyright © ',
-        React.createElement(Link_1["default"], { color: "inherit", href: "https://mui.com/" }, "Your Website"),
-        ' ',
-        new Date().getFullYear(),
-        '.'));
-}
+var MajorSelection = function () { return (React.createElement(react_select_1["default"], { required: true, options: majors, name: "major", placeholder: "Major" })); };
+var GetTerm = function () { return (React.createElement(react_select_1["default"], { required: true, options: common_1.terms_options, name: "graduation", placeholder: "Graduation Term" })); };
 var theme = (0, styles_1.createTheme)();
 function SignUp() {
     var handleSubmit = function (event) {
         event.preventDefault();
         var data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password')
-        });
+        for (var _i = 0, _a = data.entries(); _i < _a.length; _i++) {
+            var pair = _a[_i];
+            console.log(pair[0] + ', ' + pair[1]);
+        }
+        var requestOptions = {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                email: data.get('email'),
+                major: data.get('major'),
+                graduation: data.get('graduation'),
+                interests: data.getAll('interests'),
+                courses: data.getAll('courses')
+            })
+        };
+        fetch('http://127.0.0.1:8000/log', requestOptions)
+            .then(function (response) { return console.log(response.json()); });
     };
     return (React.createElement("div", { style: {
             backgroundImage: "url(".concat(background_url, ")"),

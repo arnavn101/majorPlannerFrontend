@@ -3,13 +3,9 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import { SelectField } from '@aws-amplify/ui-react';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -20,53 +16,44 @@ import { course_options, interests_options, terms_options } from './common';
 const background_url = "https://www.umass.edu/sites/default/files/styles/16_9_1920x1080/public/2021-01/Amherst-6946.JPG?h=ed6f328e&itok=vYXN4GKg"
 
 const majors = [
-    { value: 'Computer Science', label: "Computer Science" }
+    { value: 'Computer Science', label: "Computer Science" },
+    { value: 'Informatics', label: "Informatics" }
 ]
 
 
 const animatedComponents = makeAnimated();
 
-function getAttr(want: any, str: string) {
+function getAttr(want: any, str: string, name: string) {
     return (
         <Select
+            required
             placeholder={str}
             closeMenuOnSelect={false}
             components={animatedComponents}
             isMulti
             options={want}
+            name={name}
+            onChange={(e) => console.log(e)}
         />
     );
 }
 
 function CoursesTaken() {
-    return getAttr(course_options, "Courses")
+    return getAttr(course_options, "Courses", "courses")
 }
 
 function GetInterests() {
-    return getAttr(interests_options, "Interests")
+    return getAttr(interests_options, "Interests", "interests")
 }
 
 const MajorSelection = () => (
-    <Select options={majors} placeholder="Major" />
+    <Select required options={majors} name="major" placeholder="Major" />
 )
 
 const GetTerm = () => (
-    <Select options={terms_options} placeholder="Graduation Term" />
+    <Select required options={terms_options} name="graduation" placeholder="Graduation Term" />
 )
 
-
-function Copyright(props: any) {
-    return (
-        <Typography variant="body2" color="text.secondary" align="center" {...props}>
-            {'Copyright © '}
-            <Link color="inherit" href="https://mui.com/">
-                Your Website
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
-}
 
 const theme = createTheme();
 
@@ -74,10 +61,24 @@ export default function SignUp() {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
+
+        for (var pair of data.entries()) {
+            console.log(pair[0] + ', ' + pair[1]);
+        }
+
+        const requestOptions = {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                email: data.get('email'),
+                major: data.get('major'),
+                graduation: data.get('graduation'),
+                interests: data.getAll('interests'),
+                courses: data.getAll('courses'),
+            })
+        };
+        fetch('http://127.0.0.1:8000/log', requestOptions)
+            .then(response => console.log(response.json()))
     };
 
     return (
