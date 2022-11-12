@@ -39,19 +39,19 @@ function getAttr(want: any, str: string) {
 }
 
 function CoursesTaken() {
-    return getAttr(course_options, "courses")
+    return getAttr(course_options, "Courses")
 }
 
 function GetInterests() {
-    return getAttr(interests_options, "interests")
+    return getAttr(interests_options, "Interests")
 }
 
 const MajorSelection = () => (
-    <Select options={majors} placeholder="major" />
+    <Select options={majors} placeholder="Major" />
 )
 
 const GetTerm = () => (
-    <Select options={terms_options} placeholder="term" />
+    <Select options={terms_options} placeholder="Graduation Term" />
 )
 
 
