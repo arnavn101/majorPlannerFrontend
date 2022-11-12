@@ -11,8 +11,10 @@ function syncReadFile(filename) {
 }
 
 const course_list = syncReadFile('courses.txt')
-const course_options = course_list.map(course => { return { value: course, label: course } })
+export const course_options = course_list.map(course => { return { value: course, label: course } })
 
 const interests = syncReadFile('interests.txt')
-const interests_options = interests.map(interest => { return { value: interest, label: interest } })
-console.log(interests_options)
+export const interests_options = interests.map(interest => { return { value: interest, label: interest } })
+
+const terms = syncReadFile('terms.txt')
+export const terms_options = terms.map(term => { return { value: term, label: term } })

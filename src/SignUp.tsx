@@ -15,30 +15,47 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Select from 'react-select'
 import makeAnimated from 'react-select/animated';
+import { course_options, interests_options, terms_options } from './common';
 
 
-const options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' }
+
+const majors = [
+    { value: 'Computer Science', label: "Computer Science"}
 ]
+
+// const terms = [
+
+// ]
+
+
 
 const animatedComponents = makeAnimated();
 
-function AnimatedMulti() {
+function getAttr(want: any) {
     return (
         <Select
             closeMenuOnSelect={false}
             components={animatedComponents}
             isMulti
-            options={options}
+            options={want}
         />
     );
 }
 
+function CoursesTaken() {
+    return getAttr(course_options)
+}
 
-const ClassesSelection = () => (
-    <Select options={options} />
+function GetInterests() {
+    return getAttr(interests_options)
+}
+
+const MajorSelection = () => (
+    <Select options={majors} />
+)
+
+const GetTerm = () => (
+    <Select options={terms_options} />
 )
 
 
@@ -98,10 +115,16 @@ export default function SignUp() {
                                 />
                             </Grid>
                             <Grid item xs={12}>
-                                <ClassesSelection />
+                                <MajorSelection />
                             </Grid>
                             <Grid item xs={12}>
-                                <AnimatedMulti />
+                                <GetTerm />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <CoursesTaken />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <GetInterests />
                             </Grid>
                         </Grid>
                         <Button
