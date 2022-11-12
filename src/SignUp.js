@@ -26,6 +26,7 @@ var styles_1 = require("@mui/material/styles");
 var react_select_1 = require("react-select");
 var animated_1 = require("react-select/animated");
 var common_1 = require("./common");
+var background_url = "https://www.umass.edu/sites/default/files/styles/16_9_1920x1080/public/2021-01/Amherst-6946.JPG?h=ed6f328e&itok=vYXN4GKg";
 var majors = [
     { value: 'Computer Science', label: "Computer Science" }
 ];
@@ -59,7 +60,7 @@ function SignUp() {
             password: data.get('password')
         });
     };
-    return (React.createElement("div", { style: { backgroundImage: "url(/img/UmassWalp.jpeg)" } },
+    return (React.createElement("div", { style: { backgroundImage: "url(".concat(background_url, ")") } },
         React.createElement(styles_1.ThemeProvider, { theme: theme },
             React.createElement(Container_1["default"], { component: "main", maxWidth: "xs" },
                 React.createElement(CssBaseline_1["default"], null),
@@ -84,7 +85,7 @@ function SignUp() {
                                 React.createElement(CoursesTaken, null)),
                             React.createElement(Grid_1["default"], { item: true, xs: 12 },
                                 React.createElement(GetInterests, null))),
-                        React.createElement(Button_1["default"], { type: "submit", fullWidth: true, variant: "contained", sx: { mt: 3, mb: 2 } }, "Submit"),
+                        React.createElement(Button_1["default"], { type: "submit", fullWidth: true, variant: "contained", sx: { mt: 3, mb: 2 }, onClick: function () { console.log('onClick'); } }, "Submit"),
                         React.createElement(Grid_1["default"], { container: true, justifyContent: "flex-end" })))))));
 }
 exports["default"] = SignUp;

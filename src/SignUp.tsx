@@ -16,8 +16,9 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Select from 'react-select'
 import makeAnimated from 'react-select/animated';
 import { course_options, interests_options, terms_options } from './common';
-import background from "./img/UmassWalp.jpeg"
+import background from "./UmassWalp.png"
 
+const background_url = "https://www.umass.edu/sites/default/files/styles/16_9_1920x1080/public/2021-01/Amherst-6946.JPG?h=ed6f328e&itok=vYXN4GKg"
 
 const majors = [
     { value: 'Computer Science', label: "Computer Science" }
@@ -81,64 +82,64 @@ export default function SignUp() {
     };
 
     return (
-        <div style={{ backgroundImage: `url(${background})` }}>
-        <ThemeProvider theme={theme}>
-            <Container component="main" maxWidth="xs">
-                <CssBaseline />
-                <Box
-                    sx={{
-                        marginTop: 8,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                    }}
-                >
-                    <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-                        <LockOutlinedIcon />
-                    </Avatar>
-                    <Typography component="h1" variant="h5">
-                        UMass Amherst Major Planner
-                    </Typography>
-                    <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-                        <Grid container spacing={2}>
-                            <Grid item xs={12}>
-                                <TextField
-                                    required
-                                    fullWidth
-                                    id="email"
-                                    label="Email Address"
-                                    name="email"
-                                    autoComplete="email"
-                                />
+        <div style={{ backgroundImage: `url(${background_url})` }}>
+            <ThemeProvider theme={theme}>
+                <Container component="main" maxWidth="xs">
+                    <CssBaseline />
+                    <Box
+                        sx={{
+                            marginTop: 8,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                        }}
+                    >
+                        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+                            <LockOutlinedIcon />
+                        </Avatar>
+                        <Typography component="h1" variant="h5">
+                            UMass Amherst Major Planner
+                        </Typography>
+                        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+                            <Grid container spacing={2}>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        required
+                                        fullWidth
+                                        id="email"
+                                        label="Email Address"
+                                        name="email"
+                                        autoComplete="email"
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <MajorSelection />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <GetTerm />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <CoursesTaken />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <GetInterests />
+                                </Grid>
                             </Grid>
-                            <Grid item xs={12}>
-                                <MajorSelection />
+                            <Button
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                sx={{ mt: 3, mb: 2 }}
+                                onClick={() => { console.log('onClick'); }}
+                            >
+                                Submit
+                            </Button>
+                            <Grid container justifyContent="flex-end">
                             </Grid>
-                            <Grid item xs={12}>
-                                <GetTerm />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <CoursesTaken />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <GetInterests />
-                            </Grid>
-                        </Grid>
-                        <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            sx={{ mt: 3, mb: 2 }}
-                            onClick={() => { console.log('onClick'); }}
-                        >
-                            Submit
-                        </Button>
-                        <Grid container justifyContent="flex-end">
-                        </Grid>
+                        </Box>
                     </Box>
-                </Box>
-            </Container>
-        </ThemeProvider>
+                </Container>
+            </ThemeProvider>
         </div>
     );
 }
