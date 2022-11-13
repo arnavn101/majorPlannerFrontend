@@ -75,7 +75,8 @@ function Results(toggleF) {
             backgroundSize: 'cover',
             height: 'auto',
             width: '100%',
-            backgroundAttachment: 'fixed'
+            backgroundAttachment: 'fixed',
+            overflow: 'hidden'
         } },
         React.createElement(styles_1.ThemeProvider, { theme: theme },
             React.createElement(Container_1["default"], { component: "main", maxWidth: "md", sx: {} },

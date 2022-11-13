@@ -59,7 +59,9 @@ function SignUp(toggleF) {
             width: '100%',
             backgroundAttachment: 'fixed',
             paddingTop: '5px',
-            paddingBottom: '100px'
+            paddingBottom: '100px',
+            overflow: 'hidden',
+            position: 'absolute'
         } },
         React.createElement(styles_1.ThemeProvider, { theme: theme },
             React.createElement(Container_1["default"], { component: "main", maxWidth: "xs", sx: {} },

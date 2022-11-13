@@ -90,6 +90,7 @@ export default function Results(toggleF) {
       height: 'auto',
       width: '100%',
       backgroundAttachment: 'fixed',
+      overflow: 'hidden',
     }}>
       <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="md"

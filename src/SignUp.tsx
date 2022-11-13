@@ -87,7 +87,7 @@ export default function SignUp(toggleF) {
           backgroundPosition: 'center',
         //   marginTop: '-64px',
           backgroundSize: 'cover',
-          height: '1000000%',
+          height: 'auto',
           width: '100%',
           backgroundAttachment: 'fixed',
           paddingTop: '5px',
