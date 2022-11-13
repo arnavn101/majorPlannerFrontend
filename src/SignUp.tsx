@@ -88,7 +88,8 @@ export default function SignUp(toggleF) {
             marginBottom: 0,
             backgroundSize: 'cover',
             height: '100vh',
-            width: '100vw'
+            width: '100vw',
+            backgroundAttachment: 'fixed'
         }}>
             <ThemeProvider theme={theme}>
                 <Container component="main" maxWidth="xs">
