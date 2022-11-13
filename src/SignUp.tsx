@@ -12,6 +12,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Select from 'react-select'
 import makeAnimated from 'react-select/animated';
 import { course_options, interests_options, terms_options } from './common';
+import { width } from '@mui/system';
 
 const background_url = "https://www.umass.edu/sites/default/files/styles/16_9_1920x1080/public/2021-01/Amherst-6946.JPG?h=ed6f328e&itok=vYXN4GKg"
 
@@ -88,49 +89,55 @@ export default function SignUp() {
             marginTop: '-64px',
             marginBottom: 0,
             backgroundSize: 'cover',
-            height:'100vh',
-            width:'100vw'
+            height: '100vh',
+            width: '100vw'
         }}>
             <ThemeProvider theme={theme}>
                 <Container component="main" maxWidth="xs">
                     <CssBaseline />
                     <Box
                         sx={{
-                            marginTop: 8,
+                            mt: 8,
                             display: 'flex',
                             flexDirection: 'column',
                             alignItems: 'center',
+                            // borderSpacing: 5,
+                            mx: 'auto',
+                            backdropFilter: "blur(2px)",
                         }}
                     >
-                        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-                            
-                        </Avatar>
-                        <Typography component="h1" align="center" variant="h5">
+                        <Typography component="h1" align="center" variant="h5" marginTop={8} fontWeight={500}
+                        fontFamily="Arial" color="black" border={3} borderRadius="16px"
+                        >
                             UMass Amherst Major Planner
                         </Typography>
-                        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+                        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ m: 4 }}>
                             <Grid container spacing={3}>
                                 <Grid item xs={12}>
                                     <TextField
-                                        sx={{ input: {background: 'white'}}}
+                                        sx={{
+                                            input: { background: 'white' },
+                                        }}
+                                        variant="outlined"
                                         required
                                         fullWidth
+                                        size="small"
                                         id="email"
-                                        label="Email Address"
+                                        label="Enter Email Address"
                                         name="email"
                                         autoComplete="email"
                                     />
                                 </Grid>
-                                <Grid item xs={12}>
+                                <Grid item xs={12} >
                                     <MajorSelection />
                                 </Grid>
-                                <Grid item xs={12}>
+                                <Grid item xs={12} >
                                     <GetTerm />
                                 </Grid>
-                                <Grid item xs={12}>
+                                <Grid item xs={12} >
                                     <CoursesTaken />
                                 </Grid>
-                                <Grid item xs={12}>
+                                <Grid item xs={12} >
                                     <GetInterests />
                                 </Grid>
                             </Grid>
