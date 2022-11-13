@@ -83,74 +83,86 @@ export default function Results(toggleF) {
   return (
     <div style={{
       backgroundImage: `url(${background_url})`,
-      backgroundRepeat: 'repeat-y',
+      backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
-      marginTop: '-64px',
       backgroundSize: 'cover',
       height: 'auto',
       width: '100%',
       backgroundAttachment: 'fixed',
-      overflow: 'hidden',
+      paddingTop: '5px',
+      paddingBottom: '100px',
+      position: 'relative',
+      minHeight: '100vh'
     }}>
-      <ThemeProvider theme={theme}>
-        <Container component="main" maxWidth="md"
-          sx={{
-
-          }}>
-          <CssBaseline />
-          <Box
+      <div id="content-wrap" style={{
+        paddingBottom: '2.5rem',
+      }}>
+        <ThemeProvider theme={theme}>
+          <Container component="main" maxWidth="md"
             sx={{
-              marginTop: 8,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-            }}
-          >
-            {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+
+            }}>
+            <CssBaseline />
+            <Box
+              sx={{
+                marginTop: 8,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+              }}
+            >
+              {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
 
             </Avatar> */}
-            <Typography component="h1" align="center" variant="h5" marginTop={8} fontWeight={'bold'}
-              fontFamily="Arial" color="black" border={3} borderRadius="4px"
-              boxShadow="5" marginLeft={4} marginRight={4} padding={3}
-            >
-              Course Navigation Autopilot
-            </Typography>
-            <Grid container spacing={3}
-              sx={{ backgroundBlendMode: 'inherit' }}>
-              {Object.keys(results).map(semester => {
-                let output: any = []
-                output.push(<Grid item xs={12}>
-                  <Grid
-                    sx={{
-                      backdropFilter: 'blur(10px)',
-                      paddingLeft: 3,
-                      boxShadow: 15,
-                      borderRadius: "4px",
-                    }}
-                  >
-                    <Typography component="h1" align="left" variant="h6" marginTop={4} color='white'
-                      fontWeight={'bold'}
+              <Typography component="h1" align="center" variant="h5" marginTop={8} fontWeight={'bold'}
+                fontFamily="Arial" color="black" border={3} borderRadius="4px"
+                boxShadow="5" marginLeft={4} marginRight={4} padding={3}
+              >
+                Course Navigation Autopilot
+              </Typography>
+              <Grid container spacing={3}
+                sx={{ backgroundBlendMode: 'inherit' }}>
+                {Object.keys(results).map(semester => {
+                  let output: any = []
+                  output.push(<Grid item xs={12}>
+                    <Grid
+                      sx={{
+                        backdropFilter: 'blur(10px)',
+                        paddingLeft: 3,
+                        boxShadow: 15,
+                        borderRadius: "4px",
+                      }}
                     >
-                      {`${semester}`}
-                    </Typography>
-                  </Grid>
-                  {CustomizedTables(results[semester])}
-                </Grid>)
-                return output
-              })}
-            </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 6, mb: 2 }}
-              onClick={() => { toggleF(undefined) }}
-            >
-              Back
-            </Button>
-          </Box>
-        </Container>
-      </ThemeProvider>
+                      <Typography component="h1" align="left" variant="h6" marginTop={4} color='white'
+                        fontWeight={'bold'}
+                      >
+                        {`${semester}`}
+                      </Typography>
+                    </Grid>
+                    {CustomizedTables(results[semester])}
+                  </Grid>)
+                  return output
+                })}
+              </Grid>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 6, mb: 2 }}
+                onClick={() => { toggleF(undefined) }}
+              >
+                Back
+              </Button>
+            </Box>
+          </Container>
+        </ThemeProvider>
+      </div>
+      <footer id="footer" style={{
+        position: 'absolute',
+        bottom: 0,
+        width: '100%',
+        height: '2.5rem',
+      }}></footer>
     </div>
-  );
+  )
 }

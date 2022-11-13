@@ -51,49 +51,57 @@ function SignUp(toggleF) {
     };
     return (React.createElement("div", { style: {
             backgroundImage: "url(".concat(common_1.background_url, ")"),
-            backgroundRepeat: 'repeat-y',
+            backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
-            //   marginTop: '-64px',
             backgroundSize: 'cover',
             height: 'auto',
             width: '100%',
             backgroundAttachment: 'fixed',
             paddingTop: '5px',
             paddingBottom: '100px',
-            overflow: 'hidden',
-            position: 'absolute'
+            position: 'relative',
+            minHeight: '100vh'
         } },
-        React.createElement(styles_1.ThemeProvider, { theme: theme },
-            React.createElement(Container_1["default"], { component: "main", maxWidth: "xs", sx: {} },
-                React.createElement(CssBaseline_1["default"], null),
-                React.createElement(Box_1["default"], { sx: {
-                        mt: 8,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        // borderSpacing: 5,
-                        mx: 'auto',
-                        backdropFilter: "blur(2px)",
-                        boxShadow: 0.5,
-                        justifyContent: 'center',
-                        p: 2
-                    } },
-                    React.createElement(Typography_1["default"], { component: "h1", align: "center", variant: "h5", marginTop: 8, fontWeight: 'bold', fontFamily: "Arial", color: "black", border: 3, borderRadius: "4px", boxShadow: "5", marginLeft: 4, marginRight: 4, padding: 3 }, "Course Navigation Autopilot"),
-                    React.createElement(Box_1["default"], { component: "form", noValidate: true, onSubmit: handleSubmit, sx: { m: 4 } },
-                        React.createElement(Grid_1["default"], { container: true, spacing: 3 },
-                            React.createElement(Grid_1["default"], { item: true, xs: 12 },
-                                React.createElement(TextField_1["default"], { sx: {
-                                        input: { background: 'white' }
-                                    }, variant: "outlined", required: true, fullWidth: true, size: "small", id: "email", label: "Email Address", name: "email", autoComplete: "email" })),
-                            React.createElement(Grid_1["default"], { item: true, xs: 12 },
-                                React.createElement(MajorSelection, null)),
-                            React.createElement(Grid_1["default"], { item: true, xs: 12 },
-                                React.createElement(GetTerm, null)),
-                            React.createElement(Grid_1["default"], { item: true, xs: 12 },
-                                React.createElement(CoursesTaken, null)),
-                            React.createElement(Grid_1["default"], { item: true, xs: 12 },
-                                React.createElement(GetInterests, null))),
-                        React.createElement(Button_1["default"], { type: "submit", fullWidth: true, variant: "contained", sx: { mt: 3, mb: 2, boxShadow: '5' }, onClick: function () { console.log('onClick'); } }, "Submit"),
-                        React.createElement(Grid_1["default"], { container: true, justifyContent: "flex-end" })))))));
+        React.createElement("div", { id: "content-wrap", style: {
+                paddingBottom: '2.5rem'
+            } },
+            React.createElement(styles_1.ThemeProvider, { theme: theme },
+                React.createElement(Container_1["default"], { component: "main", maxWidth: "xs", sx: {} },
+                    React.createElement(CssBaseline_1["default"], null),
+                    React.createElement(Box_1["default"], { sx: {
+                            mt: 8,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            // borderSpacing: 5,
+                            mx: 'auto',
+                            backdropFilter: "blur(2px)",
+                            boxShadow: 0.5,
+                            justifyContent: 'center',
+                            p: 2
+                        } },
+                        React.createElement(Typography_1["default"], { component: "h1", align: "center", variant: "h5", marginTop: 8, fontWeight: 'bold', fontFamily: "Arial", color: "black", border: 3, borderRadius: "4px", boxShadow: "5", marginLeft: 4, marginRight: 4, padding: 3 }, "Course Navigation Autopilot"),
+                        React.createElement(Box_1["default"], { component: "form", noValidate: true, onSubmit: handleSubmit, sx: { m: 4 } },
+                            React.createElement(Grid_1["default"], { container: true, spacing: 3 },
+                                React.createElement(Grid_1["default"], { item: true, xs: 12 },
+                                    React.createElement(TextField_1["default"], { sx: {
+                                            input: { background: 'white' }
+                                        }, variant: "outlined", required: true, fullWidth: true, size: "small", id: "email", label: "Email Address", name: "email", autoComplete: "email" })),
+                                React.createElement(Grid_1["default"], { item: true, xs: 12 },
+                                    React.createElement(MajorSelection, null)),
+                                React.createElement(Grid_1["default"], { item: true, xs: 12 },
+                                    React.createElement(GetTerm, null)),
+                                React.createElement(Grid_1["default"], { item: true, xs: 12 },
+                                    React.createElement(CoursesTaken, null)),
+                                React.createElement(Grid_1["default"], { item: true, xs: 12 },
+                                    React.createElement(GetInterests, null))),
+                            React.createElement(Button_1["default"], { type: "submit", fullWidth: true, variant: "contained", sx: { mt: 3, mb: 2, boxShadow: '5' }, onClick: function () { console.log('onClick'); } }, "Submit"),
+                            React.createElement(Grid_1["default"], { container: true, justifyContent: "flex-end" })))))),
+        React.createElement("footer", { id: "footer", style: {
+                position: 'absolute',
+                bottom: 0,
+                width: '100%',
+                height: '2.5rem'
+            } })));
 }
 exports["default"] = SignUp;
