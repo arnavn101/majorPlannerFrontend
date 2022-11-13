@@ -111,9 +111,9 @@ export default function SignUp() {
                     >
                         <Typography component="h1" align="center" variant="h5" marginTop={8} fontWeight={'bold'}
                             fontFamily="Arial" color="black" border={3} borderRadius="16px"
-                            fontStyle={'italic'} boxShadow="5"
+                            fontStyle={'italic'} boxShadow="5" 
                         >
-                            UMass Amherst Major Planner
+                        Course Navigation Autopilot
                         </Typography>
                         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ m: 4 }}>
                             <Grid container spacing={3}>
