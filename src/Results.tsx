@@ -63,7 +63,7 @@ export function CustomizedTables(rows) {
               <StyledTableCell component="th" scope="row">
                 {row.number}
               </StyledTableCell>
-              <StyledTableCell align="center">{row.title}</StyledTableCell>
+              <StyledTableCell align="center" sx={{ fontSize: 20 }}>{row.title}</StyledTableCell>
               <StyledTableCell align="center">{row.credits}</StyledTableCell>
               <StyledTableCell align="center">{row.rating}</StyledTableCell>
             </StyledTableRow>
@@ -114,23 +114,30 @@ export default function Results(toggleF) {
               {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
 
             </Avatar> */}
-              <Typography component="h1" align="center" variant="h5" marginTop={8} fontWeight={'bold'}
-                fontFamily="Arial" color="black" border={3} borderRadius="4px"
-                boxShadow="5" marginLeft={4} marginRight={4} padding={3}
+              <Box
+                component="img"
+                alignSelf={'center'}
+                sx={{
+                  width: '325px',
+                  height: '325px',
+                  marginLeft: '10%',
+                }}
+                alt="Logo Here"
+                src="https://media4.giphy.com/media/RitGzFjFAW4ZstueDL/giphy.gif?cid=790b761162ee860793039ca33d86403bb1d8974404f678f9&rid=giphy.gif&ct=s"
               >
-                Course Navigation Autopilot
-              </Typography>
+              </Box>
               <Grid container spacing={3}
                 sx={{ backgroundBlendMode: 'inherit' }}>
                 {Object.keys(results).map(semester => {
                   let output: any = []
-                  output.push(<Grid item xs={12}>
+                  output.push(<Grid item xs={12}
+                  >
                     <Grid
                       sx={{
-                        backdropFilter: 'blur(10px)',
+                        backdropFilter: 'blur(15px)',
                         paddingLeft: 3,
-                        boxShadow: 15,
-                        borderRadius: "4px",
+                        boxShadow: '0px 0px 15px black',
+                        borderRadius: '3%'
                       }}
                     >
                       <Typography component="h1" align="left" variant="h6" marginTop={4} color='white'
@@ -139,7 +146,13 @@ export default function Results(toggleF) {
                         {`${semester}`}
                       </Typography>
                     </Grid>
+                    <Grid
+                    sx={{
+                      boxShadow: '0px 0px 15px black'
+                    }}
+                    >
                     {CustomizedTables(results[semester])}
+                    </Grid>
                   </Grid>)
                   return output
                 })}

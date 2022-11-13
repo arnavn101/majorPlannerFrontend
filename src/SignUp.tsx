@@ -14,6 +14,7 @@ import makeAnimated from 'react-select/animated';
 import { width } from '@mui/system';
 import { course_options, interests_options, terms_options, background_url } from './common';
 import { ScrollView } from '@aws-amplify/ui-react';
+import { BorderAllRounded, Height } from '@mui/icons-material';
 
 
 const majors = [
@@ -86,11 +87,11 @@ export default function SignUp(toggleF) {
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
             backgroundSize: 'cover',
-            height: 'auto',
+            height: '100%',
             width: '100%',
             backgroundAttachment: 'fixed',
-            paddingTop: '5px',
-            paddingBottom: '100px',
+            // paddingTop: '5px',
+            // paddingBottom: '100px',
             position: 'relative',
             minHeight: '100vh'
         }}>
@@ -101,39 +102,63 @@ export default function SignUp(toggleF) {
                 <ThemeProvider theme={theme}>
                     <Container component="main" maxWidth="xs"
                         sx={{
-
+                            alignItems: 'center',
+                            position: 'auto',
+                            // marginX:'37%'
                         }}
                     >
                         <CssBaseline />
 
                         <Box
                             sx={{
-                                mt: 8,
-                                display: 'flex',
-                                flexDirection: 'column',
+                                // mt: 8,
+                                // display:'',
+                                // flexDirection: 'column',
                                 alignItems: 'center',
-                                // borderSpacing: 5,
-                                mx: 'auto',
-                                backdropFilter: "blur(2px)",
+                                // mx: 'auto',
+                                // marginRight: '30%',
+                                // marginLeft: '30%',
+                                // width: 'max-content',
+                                // paddingRight: '40%', 
+                                // marginX: '0%',     
                                 boxShadow: 0.5,
                                 justifyContent: 'center',
-                                p: 2,
+                                // p: 2,
+                                position: 'auto',
+                                width: '120%'
                             }}
                         >
-                            <Typography component="h1" align="center" variant="h5" marginTop={8} fontWeight={'bold'}
+                            {/* <Typography component="h1" align="center" variant="h5" marginTop={8} fontWeight={'bold'}
                                 fontFamily="Arial" color="black" border={3} borderRadius="4px"
                                 boxShadow="5" marginLeft={4} marginRight={4} padding={3}
                             >
                                 Course Navigation Autopilot
-                            </Typography>
-                            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ m: 4 }}>
+                            </Typography> */}
+                            <Box
+                                component="img"
+                                alignSelf={'center'}
+                                sx={{
+                                    width: '325px',
+                                    height: '325px',
+                                    marginLeft: '15%',
+                                }}
+                                alt="Logo Here"
+                                src="https://media4.giphy.com/media/RitGzFjFAW4ZstueDL/giphy.gif?cid=790b761162ee860793039ca33d86403bb1d8974404f678f9&rid=giphy.gif&ct=s"
+                            >
+                            </Box>
+                            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ p: 4, boxShadow: '0px 0px 15px black', backdropFilter: "blur(6px)", borderRadius: '3%' }}>
                                 <Grid container spacing={3}>
-                                    <Grid item xs={12}>
+                                    <Grid item xs={12}
+                                        sx={{
+                                            borderRadius: '4%'
+                                        }}
+                                    >
                                         <TextField
                                             sx={{
                                                 input: { background: 'white' },
+
                                             }}
-                                            variant="outlined"
+                                            variant="filled"
                                             required
                                             fullWidth
                                             size="small"
