@@ -8,7 +8,7 @@ In the project directory, you can run:
 
 ### `npm start`
 ```bash
-npx -p typescript tsc src/SignUp.tsx --jsx react
+npx -p typescript tsc src/SignUp.tsx src/Results.tsx --jsx react
 npm start
 ```
 

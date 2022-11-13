@@ -13,11 +13,11 @@ import Select from 'react-select'
 import makeAnimated from 'react-select/animated';
 import { width } from '@mui/system';
 import { course_options, interests_options, terms_options, background_url } from './common';
+import { ScrollView } from '@aws-amplify/ui-react';
 
 
 const majors = [
-    { value: 'Computer Science', label: "Computer Science" },
-    { value: 'Informatics', label: "Informatics" }
+    { value: 'Computer Science', label: "Computer Science" }
 ]
 
 
@@ -39,7 +39,7 @@ function getAttr(want: any, str: string, name: string) {
 }
 
 function CoursesTaken() {
-    return getAttr(course_options, "Courses", "courses")
+    return getAttr(course_options, "Courses Taken", "courses")
 }
 
 function GetInterests() {
@@ -82,18 +82,26 @@ export default function SignUp(toggleF) {
 
     return (
         <div style={{
-            backgroundImage: `url(${background_url})`,
-            backgroundRepeat: 'no-repeat',
-            marginTop: '-64px',
-            marginBottom: 0,
-            backgroundSize: 'cover',
-            height: '100vh',
-            width: '100vw',
-            backgroundAttachment: 'fixed'
+          backgroundImage: `url(${background_url})`,
+          backgroundRepeat: 'repeat-y',
+          backgroundPosition: 'center',
+        //   marginTop: '-64px',
+          backgroundSize: 'cover',
+          height: 'auto',
+          width: '100%',
+          backgroundAttachment: 'fixed',
+          paddingTop: '5px',
+          paddingBottom: '100px',
         }}>
+        
             <ThemeProvider theme={theme}>
-                <Container component="main" maxWidth="xs">
+                <Container component="main" maxWidth="xs"
+                sx={{
+
+                }}
+                >
                     <CssBaseline />
+                    
                     <Box
                         sx={{
                             mt: 8,
@@ -107,12 +115,12 @@ export default function SignUp(toggleF) {
                             justifyContent: 'center',
                             p: 2,
                         }}
-                    >
+                    >   
                         <Typography component="h1" align="center" variant="h5" marginTop={8} fontWeight={'bold'}
-                            fontFamily="Arial" color="black" border={3} borderRadius="16px"
-                            fontStyle={'italic'} boxShadow="5" 
+                            fontFamily="Arial" color="black" border={3} borderRadius="4px"
+                            boxShadow="5" marginLeft={4} marginRight={4} padding={3}
                         >
-                        Course Navigation Autopilot
+                         Course Navigation Autopilot 
                         </Typography>
                         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ m: 4 }}>
                             <Grid container spacing={3}>
@@ -126,7 +134,7 @@ export default function SignUp(toggleF) {
                                         fullWidth
                                         size="small"
                                         id="email"
-                                        label="Enter Email Address"
+                                        label="Email Address"
                                         name="email"
                                         autoComplete="email"
                                     />

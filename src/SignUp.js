@@ -13,15 +13,14 @@ var react_select_1 = require("react-select");
 var animated_1 = require("react-select/animated");
 var common_1 = require("./common");
 var majors = [
-    { value: 'Computer Science', label: "Computer Science" },
-    { value: 'Informatics', label: "Informatics" }
+    { value: 'Computer Science', label: "Computer Science" }
 ];
 var animatedComponents = (0, animated_1["default"])();
 function getAttr(want, str, name) {
     return (React.createElement(react_select_1["default"], { required: true, placeholder: str, closeMenuOnSelect: false, components: animatedComponents, isMulti: true, options: want, name: name, onChange: function (e) { return console.log(e); } }));
 }
 function CoursesTaken() {
-    return getAttr(common_1.course_options, "Courses", "courses");
+    return getAttr(common_1.course_options, "Courses Taken", "courses");
 }
 function GetInterests() {
     return getAttr(common_1.interests_options, "Interests", "interests");
@@ -52,15 +51,18 @@ function SignUp(toggleF) {
     };
     return (React.createElement("div", { style: {
             backgroundImage: "url(".concat(common_1.background_url, ")"),
-            backgroundRepeat: 'no-repeat',
-            marginTop: '-64px',
-            marginBottom: 0,
+            backgroundRepeat: 'repeat-y',
+            backgroundPosition: 'center',
+            //   marginTop: '-64px',
             backgroundSize: 'cover',
-            height: '100vh',
-            width: '100vw'
+            height: 'auto',
+            width: '100%',
+            backgroundAttachment: 'fixed',
+            paddingTop: '5px',
+            paddingBottom: '100px'
         } },
         React.createElement(styles_1.ThemeProvider, { theme: theme },
-            React.createElement(Container_1["default"], { component: "main", maxWidth: "xs" },
+            React.createElement(Container_1["default"], { component: "main", maxWidth: "xs", sx: {} },
                 React.createElement(CssBaseline_1["default"], null),
                 React.createElement(Box_1["default"], { sx: {
                         mt: 8,
@@ -74,13 +76,13 @@ function SignUp(toggleF) {
                         justifyContent: 'center',
                         p: 2
                     } },
-                    React.createElement(Typography_1["default"], { component: "h1", align: "center", variant: "h5", marginTop: 8, fontWeight: 'bold', fontFamily: "Arial", color: "black", border: 3, borderRadius: "16px", fontStyle: 'italic', boxShadow: "5" }, "Course Navigation Autopilot"),
+                    React.createElement(Typography_1["default"], { component: "h1", align: "center", variant: "h5", marginTop: 8, fontWeight: 'bold', fontFamily: "Arial", color: "black", border: 3, borderRadius: "4px", boxShadow: "5", marginLeft: 4, marginRight: 4, padding: 3 }, "Course Navigation Autopilot"),
                     React.createElement(Box_1["default"], { component: "form", noValidate: true, onSubmit: handleSubmit, sx: { m: 4 } },
                         React.createElement(Grid_1["default"], { container: true, spacing: 3 },
                             React.createElement(Grid_1["default"], { item: true, xs: 12 },
                                 React.createElement(TextField_1["default"], { sx: {
                                         input: { background: 'white' }
-                                    }, variant: "outlined", required: true, fullWidth: true, size: "small", id: "email", label: "Enter Email Address", name: "email", autoComplete: "email" })),
+                                    }, variant: "outlined", required: true, fullWidth: true, size: "small", id: "email", label: "Email Address", name: "email", autoComplete: "email" })),
                             React.createElement(Grid_1["default"], { item: true, xs: 12 },
                                 React.createElement(MajorSelection, null)),
                             React.createElement(Grid_1["default"], { item: true, xs: 12 },

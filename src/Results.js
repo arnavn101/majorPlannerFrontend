@@ -2,7 +2,6 @@
 exports.__esModule = true;
 exports.CustomizedTables = void 0;
 var React = require("react");
-var Avatar_1 = require("@mui/material/Avatar");
 var Button_1 = require("@mui/material/Button");
 var CssBaseline_1 = require("@mui/material/CssBaseline");
 var Grid_1 = require("@mui/material/Grid");
@@ -70,15 +69,16 @@ function Results(toggleF) {
     }
     return (React.createElement("div", { style: {
             backgroundImage: "url(".concat(common_1.background_url, ")"),
-            backgroundRepeat: 'no-repeat',
+            backgroundRepeat: 'repeat-y',
+            backgroundPosition: 'center',
             marginTop: '-64px',
-            marginBottom: 0,
             backgroundSize: 'cover',
-            height: '100vh',
-            width: '100vw'
+            height: 'auto',
+            width: '100%',
+            backgroundAttachment: 'fixed'
         } },
         React.createElement(styles_1.ThemeProvider, { theme: theme },
-            React.createElement(Container_1["default"], { component: "main", maxWidth: "md" },
+            React.createElement(Container_1["default"], { component: "main", maxWidth: "md", sx: {} },
                 React.createElement(CssBaseline_1["default"], null),
                 React.createElement(Box_1["default"], { sx: {
                         marginTop: 8,
@@ -86,15 +86,20 @@ function Results(toggleF) {
                         flexDirection: 'column',
                         alignItems: 'center'
                     } },
-                    React.createElement(Avatar_1["default"], { sx: { m: 1, bgcolor: 'secondary.main' } }),
-                    React.createElement(Typography_1["default"], { component: "h1", align: "center", variant: "h5" }, "UMass Amherst Major Planner"),
-                    React.createElement(Grid_1["default"], { container: true, spacing: 3 }, Object.keys(results).map(function (semester) {
+                    React.createElement(Typography_1["default"], { component: "h1", align: "center", variant: "h5", marginTop: 8, fontWeight: 'bold', fontFamily: "Arial", color: "black", border: 3, borderRadius: "4px", boxShadow: "5", marginLeft: 4, marginRight: 4, padding: 3 }, "Course Navigation Autopilot"),
+                    React.createElement(Grid_1["default"], { container: true, spacing: 3, sx: { backgroundBlendMode: 'inherit' } }, Object.keys(results).map(function (semester) {
                         var output = [];
                         output.push(React.createElement(Grid_1["default"], { item: true, xs: 12 },
-                            React.createElement(Typography_1["default"], { component: "h1", align: "left", variant: "h5", marginTop: 4 }, "".concat(semester)),
+                            React.createElement(Grid_1["default"], { sx: {
+                                    backdropFilter: 'blur(10px)',
+                                    paddingLeft: 3,
+                                    boxShadow: 15,
+                                    borderRadius: "4px"
+                                } },
+                                React.createElement(Typography_1["default"], { component: "h1", align: "left", variant: "h6", marginTop: 4, color: 'white', fontWeight: 'bold' }, "".concat(semester))),
                             CustomizedTables(results[semester])));
                         return output;
                     })),
-                    React.createElement(Button_1["default"], { type: "submit", fullWidth: true, variant: "contained", sx: { mt: 3, mb: 2 }, onClick: function () { toggleF(undefined); } }, "Back"))))));
+                    React.createElement(Button_1["default"], { type: "submit", fullWidth: true, variant: "contained", sx: { mt: 6, mb: 2 }, onClick: function () { toggleF(undefined); } }, "Back"))))));
 }
 exports["default"] = Results;
