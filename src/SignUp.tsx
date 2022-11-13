@@ -11,10 +11,9 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Select from 'react-select'
 import makeAnimated from 'react-select/animated';
-import { course_options, interests_options, terms_options } from './common';
 import { width } from '@mui/system';
+import { course_options, interests_options, terms_options, background_url } from './common';
 
-const background_url = "https://www.umass.edu/sites/default/files/styles/16_9_1920x1080/public/2021-01/Amherst-6946.JPG?h=ed6f328e&itok=vYXN4GKg"
 
 const majors = [
     { value: 'Computer Science', label: "Computer Science" },
@@ -58,14 +57,10 @@ const GetTerm = () => (
 
 const theme = createTheme();
 
-export default function SignUp() {
+export default function SignUp(toggleF) {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-
-        for (var pair of data.entries()) {
-            console.log(pair[0] + ', ' + pair[1]);
-        }
 
         const requestOptions = {
             method: "POST",
@@ -78,8 +73,11 @@ export default function SignUp() {
                 courses: data.getAll('courses'),
             })
         };
-        fetch('http://127.0.0.1:8000/log', requestOptions)
-            .then(response => console.log(response.json()))
+        fetch('http://127.0.0.1:8000/graph', requestOptions)
+            .then(response => response.json()).then(obj => {
+                console.log(obj)
+                toggleF(obj)
+            })
     };
 
     return (

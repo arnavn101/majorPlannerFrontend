@@ -12,7 +12,6 @@ var styles_1 = require("@mui/material/styles");
 var react_select_1 = require("react-select");
 var animated_1 = require("react-select/animated");
 var common_1 = require("./common");
-var background_url = "https://www.umass.edu/sites/default/files/styles/16_9_1920x1080/public/2021-01/Amherst-6946.JPG?h=ed6f328e&itok=vYXN4GKg";
 var majors = [
     { value: 'Computer Science', label: "Computer Science" },
     { value: 'Informatics', label: "Informatics" }
@@ -30,14 +29,10 @@ function GetInterests() {
 var MajorSelection = function () { return (React.createElement(react_select_1["default"], { required: true, options: majors, name: "major", placeholder: "Major" })); };
 var GetTerm = function () { return (React.createElement(react_select_1["default"], { required: true, options: common_1.terms_options, name: "graduation", placeholder: "Graduation Term" })); };
 var theme = (0, styles_1.createTheme)();
-function SignUp() {
+function SignUp(toggleF) {
     var handleSubmit = function (event) {
         event.preventDefault();
         var data = new FormData(event.currentTarget);
-        for (var _i = 0, _a = data.entries(); _i < _a.length; _i++) {
-            var pair = _a[_i];
-            console.log(pair[0] + ', ' + pair[1]);
-        }
         var requestOptions = {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
@@ -49,11 +44,14 @@ function SignUp() {
                 courses: data.getAll('courses')
             })
         };
-        fetch('http://127.0.0.1:8000/log', requestOptions)
-            .then(function (response) { return console.log(response.json()); });
+        fetch('http://127.0.0.1:8000/graph', requestOptions)
+            .then(function (response) { return response.json(); }).then(function (obj) {
+            console.log(obj);
+            toggleF(obj);
+        });
     };
     return (React.createElement("div", { style: {
-            backgroundImage: "url(".concat(background_url, ")"),
+            backgroundImage: "url(".concat(common_1.background_url, ")"),
             backgroundRepeat: 'no-repeat',
             marginTop: '-64px',
             marginBottom: 0,
