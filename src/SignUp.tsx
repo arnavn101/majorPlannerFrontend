@@ -104,10 +104,14 @@ export default function SignUp() {
                             // borderSpacing: 5,
                             mx: 'auto',
                             backdropFilter: "blur(2px)",
+                            boxShadow: 0.5,
+                            justifyContent: 'center',
+                            p: 2,
                         }}
                     >
-                        <Typography component="h1" align="center" variant="h5" marginTop={8} fontWeight={500}
-                        fontFamily="Arial" color="black" border={3} borderRadius="16px"
+                        <Typography component="h1" align="center" variant="h5" marginTop={8} fontWeight={'bold'}
+                            fontFamily="Arial" color="black" border={3} borderRadius="16px"
+                            fontStyle={'italic'} boxShadow="5"
                         >
                             UMass Amherst Major Planner
                         </Typography>
@@ -128,16 +132,20 @@ export default function SignUp() {
                                         autoComplete="email"
                                     />
                                 </Grid>
-                                <Grid item xs={12} >
+                                <Grid item xs={12}
+                                >
                                     <MajorSelection />
                                 </Grid>
-                                <Grid item xs={12} >
+                                <Grid item xs={12}
+                                >
                                     <GetTerm />
                                 </Grid>
-                                <Grid item xs={12} >
+                                <Grid item xs={12}
+                                >
                                     <CoursesTaken />
                                 </Grid>
-                                <Grid item xs={12} >
+                                <Grid item xs={12}
+                                >
                                     <GetInterests />
                                 </Grid>
                             </Grid>
@@ -145,7 +153,7 @@ export default function SignUp() {
                                 type="submit"
                                 fullWidth
                                 variant="contained"
-                                sx={{ mt: 3, mb: 2 }}
+                                sx={{ mt: 3, mb: 2, boxShadow: '5' }}
                                 onClick={() => { console.log('onClick'); }}
                             >
                                 Submit

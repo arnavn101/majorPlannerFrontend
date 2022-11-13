@@ -71,9 +71,12 @@ function SignUp() {
                         alignItems: 'center',
                         // borderSpacing: 5,
                         mx: 'auto',
-                        backdropFilter: "blur(2px)"
+                        backdropFilter: "blur(2px)",
+                        boxShadow: 0.5,
+                        justifyContent: 'center',
+                        p: 2
                     } },
-                    React.createElement(Typography_1["default"], { component: "h1", align: "center", variant: "h5", marginTop: 8, fontWeight: 500, fontFamily: "Arial", color: "black", border: 3, borderRadius: "16px" }, "UMass Amherst Major Planner"),
+                    React.createElement(Typography_1["default"], { component: "h1", align: "center", variant: "h5", marginTop: 8, fontWeight: 'bold', fontFamily: "Arial", color: "black", border: 3, borderRadius: "16px", fontStyle: 'italic', boxShadow: "5" }, "UMass Amherst Major Planner"),
                     React.createElement(Box_1["default"], { component: "form", noValidate: true, onSubmit: handleSubmit, sx: { m: 4 } },
                         React.createElement(Grid_1["default"], { container: true, spacing: 3 },
                             React.createElement(Grid_1["default"], { item: true, xs: 12 },
@@ -88,7 +91,7 @@ function SignUp() {
                                 React.createElement(CoursesTaken, null)),
                             React.createElement(Grid_1["default"], { item: true, xs: 12 },
                                 React.createElement(GetInterests, null))),
-                        React.createElement(Button_1["default"], { type: "submit", fullWidth: true, variant: "contained", sx: { mt: 3, mb: 2 }, onClick: function () { console.log('onClick'); } }, "Submit"),
+                        React.createElement(Button_1["default"], { type: "submit", fullWidth: true, variant: "contained", sx: { mt: 3, mb: 2, boxShadow: '5' }, onClick: function () { console.log('onClick'); } }, "Submit"),
                         React.createElement(Grid_1["default"], { container: true, justifyContent: "flex-end" })))))));
 }
 exports["default"] = SignUp;
